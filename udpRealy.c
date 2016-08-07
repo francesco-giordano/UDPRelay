@@ -1,5 +1,7 @@
 /*
     Raw UDP sockets
+TODO: 	Add thread
+	Create a queue to be async
 */
 #include<stdio.h> //for printf
 #include<string.h> //memset
@@ -138,7 +140,7 @@ int main (int argc, char **argv)
 				break;
 
 			/*
-			 * To Be review, there is better ways to do this
+			 * TODO review, there are better ways to do this
 			 */
 			char str1[MAX_STR], str2[MAX_STR];
 			int j,target,k;
@@ -262,7 +264,8 @@ int main (int argc, char **argv)
 
 		// Pick a server in the pool randomly
 		int server_index = (rand() % serversno);
-		printf("index: %d\n",server_index);
+		//DEBUG
+		//printf("index: %d\n",server_index);
 
 		sin.sin_addr.s_addr = inet_addr (server_pool[server_index].name);
 		//DEBUG
